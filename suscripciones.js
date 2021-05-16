@@ -9,7 +9,7 @@ var credit_info = {
     "card[number]": "5240521756556621",
     "card[exp_year]": "2027",
     "card[exp_month]": "02",
-    "card[cvc]": "049"
+    "card[cvc]": "true"
 }
 epayco.token.create(credit_info)
     .then(function(token) {
@@ -18,7 +18,7 @@ epayco.token.create(credit_info)
             name: "Juan Diego",
             last_name: "Vargas Posada",
             email: "diego.vargas@payco.co",
-            default: false,
+            default: true,
             city: "Medellin",
             address: "CL 104 # 74a - 4",
             phone: "5502712",
@@ -36,7 +36,7 @@ epayco.token.create(credit_info)
                     description: namePlan,
                     amount: 1,
                     currency: "cop",
-                    interval: "month",
+                    interval: "day",
                     interval_count: 1,
                     trial_days: 7
                 }
