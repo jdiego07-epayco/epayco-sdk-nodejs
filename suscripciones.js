@@ -5,6 +5,9 @@ var epayco = require('./epayco-sdk-node')({
     test: false
 })
 
+// 0a1355cb62bed176215e075 tokenId
+// 0a1355de0bc0c20823b49e3 customerId
+
 var credit_info = {
     "card[number]": "5240521756556621",
     "card[exp_year]": "2027",
@@ -17,8 +20,8 @@ epayco.token.create(credit_info)
             token_card: token.id,
             name: "Juan Diego",
             last_name: "Vargas Posada",
-            email: "diego.vargas@payco.co",
-            default: true,
+            email: "maria.correa@payco.co",
+            default: false,
             city: "Medellin",
             address: "CL 104 # 74a - 4",
             phone: "5502712",
@@ -42,10 +45,14 @@ epayco.token.create(credit_info)
                 }
                 epayco.plans.create(plan_info)
                     .then(function(plan) {
+                        console.log(token.id)
+                        console.log(customer.data.customerId)
                         var subscription_info = {
                             id_plan: plan.data.id_plan,
                             customer: customer.data.customerId,
                             token_card: token.id,
+                            // customer: "092bd9626c7282d3a45d5cd",
+                            // token_card: "092bd95779a1a07a01afc54",
                             doc_type: "CC",
                             doc_number: "1194418306",
                             url_confirmation: "http://diego.dev-plugins.info/confirmacion.php",
@@ -57,6 +64,8 @@ epayco.token.create(credit_info)
                                     id_plan: plan.data.id_plan,
                                     customer: customer.data.customerId,
                                     token_card: token.id,
+                                    // customer: "092bd9626c7282d3a45d5cd",
+                                    // token_card: "092bd95779a1a07a01afc54",
                                     doc_type: "CC",
                                     doc_number: "1194418306",
                                     ip: "181.134.247.50"
