@@ -1,6 +1,6 @@
 var epayco = require('./epayco-sdk-node')({
-    apiKey: '55b75fd6b1ef17eaf394fa985de6563c',
-    privateKey: '9327203f56866f1ed1ef4f56272ee771',
+    apiKey: 'c40acc8a877f180bf312c79aae0503f7',
+    privateKey: 'b13e95ea247b7cbe1f41724a1cb86d91',
     lang: 'ES',
     test: false
 })
@@ -29,8 +29,8 @@ var epayco = require('./epayco-sdk-node')({
 var payment_info = {
     // token_card: token.id,
     // customer_id: customer.data.customerId,
-    token_card: "0837e22f054270493229d03",
-    customer_id: "0754200c0e6dd165e4c5344",
+    token_card: "0a7c4d1e8b3956e40645052",
+    customer_id: "077407e10171531365d57fc",
     doc_type: "CC",
     doc_number: "1194418306",
     name: "Juan Diego",
@@ -42,9 +42,9 @@ var payment_info = {
     cell_phone: "3042462218",
     bill: (Math.floor(Math.random() * (3999999 - 1)) + 1).toString(),
     description: "SDK NODEJS Pruebas ePayco Split TC",
-    value: "1",
+    value: "6",
     tax: "0",
-    tax_base: "1",
+    tax_base: "6",
     currency: "COP",
     dues: "1",
     ip: "181.134.247.50",
@@ -54,20 +54,16 @@ var payment_info = {
     method_confirmation: "POST",
     use_default_card_customer: false,
     splitpayment: true,
-    split_app_id: "515360",
-    split_merchant_id: "515360",
-    split_type: "02",
-    split_primary_receiver: "515360",
+    split_app_id: "93006",
+    split_merchant_id: "93006",
+    split_type: "01",
+    split_primary_receiver: "93006",
     split_primary_receiver_fee: "0",
     split_rule: "multiple",
     split_receivers: [
-        { id: "P_CUST_ID_CLIENTE 2ND RECEIVER", total: "58000", iva: "8000", base_iva: "50000", fee: "10" },
-        { id: "P_CUST_ID_CLIENTE 2ND RECEIVER", total: "58000", iva: "8000", base_iva: "50000", fee: "10" }
+        { id: "515360", total: "3", iva: "0", base_iva: "3", fee: "1" },
+        { id: "9898", total: "3", iva: "0", base_iva: "3", fee: "1" }
     ],
-    split_receivers: JSON.stringify([
-        { id: "P_CUST_ID_CLIENTE 2ND RECEIVER", total: "58000", iva: "8000", base_iva: "50000", fee: "10" },
-        { id: "P_CUST_ID_CLIENTE 2ND RECEIVER", total: "58000", iva: "8000", base_iva: "50000", fee: "10" }
-    ]),
     extras: {
         extra1: "",
         extra2: "",

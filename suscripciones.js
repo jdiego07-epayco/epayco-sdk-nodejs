@@ -20,7 +20,7 @@ epayco.token.create(credit_info)
             token_card: token.id,
             name: "Juan Diego",
             last_name: "Vargas Posada",
-            email: "maria.correa@payco.co",
+            email: "maria.123456@payco.co",
             default: false,
             city: "Medellin",
             address: "CL 104 # 74a - 4",
@@ -34,21 +34,21 @@ epayco.token.create(credit_info)
                 let namePlan = 'SuscripcionNODEJS-' + num.toString()
 
                 var plan_info = {
-                    id_plan: namePlan,
-                    name: namePlan,
-                    description: namePlan,
+                    id_plan: "SuscripcionNODEJS-33",
+                    name: "SuscripcionNODEJS-33",
+                    description: "SuscripcionNODEJS-33",
                     amount: 1,
                     currency: "cop",
                     interval: "day",
                     interval_count: 1,
-                    trial_days: 7
+                    trial_days: 0
                 }
                 epayco.plans.create(plan_info)
                     .then(function(plan) {
                         console.log(token.id)
                         console.log(customer.data.customerId)
                         var subscription_info = {
-                            id_plan: plan.data.id_plan,
+                            id_plan: "SuscripcionNODEJS-55",
                             customer: customer.data.customerId,
                             token_card: token.id,
                             // customer: "092bd9626c7282d3a45d5cd",
@@ -61,7 +61,7 @@ epayco.token.create(credit_info)
                         epayco.subscriptions.create(subscription_info)
                             .then(function(subscription) {
                                 var subscription_info = {
-                                    id_plan: plan.data.id_plan,
+                                    id_plan: "SuscripcionNODEJS-55",
                                     customer: customer.data.customerId,
                                     token_card: token.id,
                                     // customer: "092bd9626c7282d3a45d5cd",
@@ -72,7 +72,7 @@ epayco.token.create(credit_info)
                                 }
                                 epayco.subscriptions.charge(subscription_info)
                                     .then(function(pay) {
-                                        console.log(pay);
+                                        console.log(pay.data);
                                     })
                                     .catch(function(err) {
                                         console.log("err: " + err);
